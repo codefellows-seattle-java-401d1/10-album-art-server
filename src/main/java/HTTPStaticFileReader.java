@@ -1,24 +1,31 @@
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Date;
 import java.util.Scanner;
 
 public class HTTPStaticFileReader {
     private String path;
 
-    public HTTPStaticFileReader(HTTPRequest request) {
-        this.path = request.path;
+    public HTTPStaticFileReader(String page) {
+
+        this.path = page;
     }
 
     public String getContents() throws IOException {
         String result = "";
 
-        // How do I load a file from resource folder?
-        // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "static/" + this.path;
-        ClassLoader classLoader = getClass().getClassLoader();
-        String fullFilepath = classLoader.getResource(filepath).getFile();
-        File file = new File(fullFilepath);
+        /*
+        STEVE'S NOTES:
+        - How do I load a file from resource folder?
+        - https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
+         */
+
+        /*
+        I had to hard code my file path into the variable filepath because my IntelliJ would not utilize the ClassLoader methods. The URL still came back as null each time.
+         */
+        String filepath = "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources" + this.path;
+        File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
@@ -48,18 +55,23 @@ public class HTTPStaticFileReader {
         String symbol = cells[0];
         String last = cells[1];
 
+        String content = replaceSymbol(symbol);
+
+        return first + content + last;
+    }
+
+    public String replaceSymbol(String symbol) {
         String content = "_____________";
         if (symbol.equals("RANDOM_JSON_QUOTE")) {
             content = randomJSONQuote();
         } else if (symbol.equals("TIMESTAMP")) {
             content = currentTimestamp();
         }
-
-        return first + content + last;
+        return content;
     }
 
     public String randomJSONQuote() {
-       return "\"I am not a crook.\" --Nixon";
+        return "\"I am not a crook.\" --Nixon";
     }
 
     public String currentTimestamp() {

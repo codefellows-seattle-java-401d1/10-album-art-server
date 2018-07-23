@@ -1,5 +1,6 @@
 import java.io.*;
-import java.net.*;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 class MyHttpServer {
     public static final int PORT = 6789;

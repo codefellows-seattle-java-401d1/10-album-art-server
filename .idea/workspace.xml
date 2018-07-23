@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc132c5e-575e-438b-a06e-72417e24cab5" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/paul.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/java/HTTPRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTTPRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/java/HTTPResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTTPResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/java/HTTPStaticFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/java/MyHttpServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MyHttpServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/resources/static/quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/quote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/src/main/resources/static/seattle.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/seattle.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/static/madlibs.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/madlibs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/static/quote.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/quote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ManualHttpServer/static/seattle.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/seattle.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -90,7 +72,7 @@
       <file leaf-file-name="HTTPRequest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/HTTPRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
+            <state relative-caret-position="463">
               <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -114,9 +96,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#214#215#0" expanded="true" />
+                <element signature="e#254#255#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -441,6 +425,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/paul.html" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/HTTPRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java" />
       </list>
     </option>
   </component>
@@ -604,7 +589,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="840" height="1028" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -619,7 +603,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31547618" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.31309524" />
       <window_info anchor="bottom" id="Build" weight="0.32914045" />
       <window_info anchor="right" id="Gradle" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -640,15 +624,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/seattle.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -694,9 +669,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HTTPResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HTTPRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
+        <state relative-caret-position="463">
           <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -707,9 +691,11 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/HTTPStaticFileReader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#254#255#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -16,10 +17,8 @@ public class HTTPStaticFileReader {
 
         // How do I load a file from resource folder?
         // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "static/" + this.path;
-        ClassLoader classLoader = getClass().getClassLoader();
-        String fullFilepath = classLoader.getResource(filepath).getFile();
-        File file = new File(fullFilepath);
+        String filepath = "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources" + this.path;
+        File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {

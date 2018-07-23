@@ -29,13 +29,10 @@ class MyHttpServer {
             BufferedWriter out = null;
 
             try {
-//                Socket request = socket.accept();
-
                 in = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
                 out = new BufferedWriter((new OutputStreamWriter(connectionSocket.getOutputStream())));
                 handleRequest(in, out);
             HTTPRequest request = new HTTPRequest(in);
-//            HTTPResponse response;
             } catch (Exception e) {
                 if (out != null) {
                     HTTPResponse response = new HTTPResponse(500, "Internal server error");
@@ -61,7 +58,7 @@ class MyHttpServer {
         System.out.println("closed request.");
     }
 
-    private static String route(HTTPRequest request) throws IOException {
+    public static String route(HTTPRequest request) throws IOException {
         HTTPStaticFileReader reader = new HTTPStaticFileReader(request.path);
         if (request.path.startsWith("/search")) {
             String query = request.queryParams().get("query");
@@ -70,9 +67,6 @@ class MyHttpServer {
             Map<String, String> locals = new HashMap<>();
             locals.put("IMG_SRC", url);
             reader = new TemplateFileReader("/cover.html", locals);
-//        } else {
-//        HTTPStaticFileReader file = new HTTPStaticFileReader(request);
-//        body = file.getContents();
         }
         String examineReader = reader.getContents();
         return examineReader;

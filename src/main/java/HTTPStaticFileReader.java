@@ -15,8 +15,15 @@ public class HTTPStaticFileReader {
     public String getContents() throws IOException {
         String result = "";
 
-        // How do I load a file from resource folder?
-        // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
+        /*
+        STEVE'S NOTES:
+        - How do I load a file from resource folder?
+        - https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
+         */
+
+        /*
+        I had to hard code my file path into the variable filepath because my IntelliJ would not utilize the ClassLoader methods. The URL still came back as null each time.
+         */
         String filepath = "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources" + this.path;
         File file = new File(filepath);
 

@@ -26,8 +26,8 @@ public class AlbumScraper {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/index.html";
+            return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/no-record-found.jpg";
         }
-        return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/index.html";
+        return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/no-record-found.jpg";
     }
 }

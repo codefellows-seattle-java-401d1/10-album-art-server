@@ -13,7 +13,7 @@ public class AlbumScraper {
 
     public static String getAlbumArtURL(String query) {
         try {
-            String url = " https://www.discogs.com/search/?q=" + query + "type=all";
+            String url = " https://www.discogs.com/search/?q=" + query + "&type=all";
             Document doc = Jsoup.connect(url).get();
 
             Elements albumCovers = doc.select(".thumbnail_center");
@@ -26,8 +26,8 @@ public class AlbumScraper {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (Exception e) {
-            return "find a default image";
+            return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/index.html";
         }
-        return "find a default image";
+        return "/Users/amycohen/codefellows/401/lab-amy/10-album-art-server/src/main/resources/index.html";
     }
 }

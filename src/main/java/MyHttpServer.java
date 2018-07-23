@@ -69,7 +69,7 @@ class MyHttpServer {
 
             Map<String, String> locals = new HashMap<>();
             locals.put("IMG_SRC", url);
-            reader = new TemplateFileReader("cover.html", locals);
+            reader = new TemplateFileReader("/cover.html", locals);
 //        } else {
 //        HTTPStaticFileReader file = new HTTPStaticFileReader(request);
 //        body = file.getContents();

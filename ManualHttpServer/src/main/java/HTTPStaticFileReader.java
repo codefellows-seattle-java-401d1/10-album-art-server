@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class HTTPStaticFileReader {
     private String path;
 
-    public HTTPStaticFileReader(HTTPRequest request) {
-        this.path = request.path;
+    public HTTPStaticFileReader(String page) {
+
+        this.path = page;
     }
 
     public String getContents() throws IOException {
@@ -48,18 +49,23 @@ public class HTTPStaticFileReader {
         String symbol = cells[0];
         String last = cells[1];
 
+        String content = replaceSymbol(symbol);
+
+        return first + content + last;
+    }
+
+    public String replaceSymbol(String symbol) {
         String content = "_____________";
         if (symbol.equals("RANDOM_JSON_QUOTE")) {
             content = randomJSONQuote();
         } else if (symbol.equals("TIMESTAMP")) {
             content = currentTimestamp();
         }
-
-        return first + content + last;
+        return content;
     }
 
     public String randomJSONQuote() {
-       return "\"I am not a crook.\" --Nixon";
+        return "\"I am not a crook.\" --Nixon";
     }
 
     public String currentTimestamp() {

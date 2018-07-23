@@ -1,5 +1,13 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class HTTPRequest {
     public String path;
@@ -22,5 +30,14 @@ public class HTTPRequest {
         } catch (IOException e) {
             System.out.println("Error parsing HTTP request: " + this.path);
         }
+    }
+
+    public static Map queryParams(String key, String value) throws IOException {
+        Map<String, String> pair = new HashMap<>();
+
+        Document paul = Jsoup.connect("/search").get();
+        System.out.println(paul.html());
+
+        return pair;
     }
 }

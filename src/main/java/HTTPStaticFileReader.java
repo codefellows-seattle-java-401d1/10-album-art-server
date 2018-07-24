@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class HTTPStaticFileReader {
     private String path;
 
-    public HTTPStaticFileReader(HTTPRequest request) {
-        this.path = request.path;
+    public HTTPStaticFileReader(String request) {
+        this.path = request;
     }
 
     public String getContents() throws IOException {
@@ -15,10 +15,8 @@ public class HTTPStaticFileReader {
 
         // How do I load a file from resource folder?
         // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "static/" + this.path;
-        ClassLoader classLoader = getClass().getClassLoader();
-        String fullFilepath = classLoader.getResource(filepath).getFile();
-        File file = new File(fullFilepath);
+        String filepath = "/Users/yutani/codefellows/401/10-album-art-server/ManualHttpServer/src/main/resources/static" + this.path;
+        File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
@@ -48,14 +46,19 @@ public class HTTPStaticFileReader {
         String symbol = cells[0];
         String last = cells[1];
 
-        String content = "_____________";
+        String content = replaceSymbol(symbol);
+
+        return first + content + last;
+    }
+
+    public String replaceSymbol (String symbol) {
+        String content = "_______";
         if (symbol.equals("RANDOM_JSON_QUOTE")) {
             content = randomJSONQuote();
         } else if (symbol.equals("TIMESTAMP")) {
             content = currentTimestamp();
         }
-
-        return first + content + last;
+        return content;
     }
 
     public String randomJSONQuote() {

@@ -1,3 +1,5 @@
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.io.*;
 import java.net.*;
 
@@ -25,8 +27,8 @@ class MyHttpServer {
             HTTPStaticFileReader file = new HTTPStaticFileReader(request);
 
             try {
+                String body = route(request);
                 int statusCode = 200;
-                String body = file.getContents();
                 HTTPResponse response = new HTTPResponse(statusCode, body);
                 response.send(outToClient);
             } catch (FileNotFoundException e) {
@@ -39,5 +41,22 @@ class MyHttpServer {
 
             System.out.println("closed request.");
         }
+
+
+    }
+
+    private static String route(HTTPRequest request) throws IOException {
+        String body = "";
+        if (request.path.startsWith("/search")) {
+            String query = StringButchering.getParams(request.path).get("query");
+            String url = AlbumSearch.getAlbumArtUrl(query);
+            body += "<html>";
+            body += "<img src='" + url + "'>";
+            body += "</html>";
+        } else {
+            HTTPStaticFileReader file = new HTTPStaticFileReader(request);
+            body = file.getContents();
+        }
+        return body;
     }
 }

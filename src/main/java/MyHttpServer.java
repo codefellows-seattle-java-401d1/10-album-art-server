@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class MyHttpServer {
+
     public static final int PORT = 6789;
 
     public static void main(String argv[]) {
@@ -32,7 +33,7 @@ class MyHttpServer {
                 in = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
                 out = new BufferedWriter((new OutputStreamWriter(connectionSocket.getOutputStream())));
                 handleRequest(in, out);
-            HTTPRequest request = new HTTPRequest(in);
+                HTTPRequest request = new HTTPRequest(in);
             } catch (Exception e) {
                 if (out != null) {
                     HTTPResponse response = new HTTPResponse(500, "Internal server error");

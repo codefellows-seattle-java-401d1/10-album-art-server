@@ -3,7 +3,7 @@ import java.util.Map;
 class TemplateFileReader extends HTTPStaticFileReader {
     private Map<String, String> locals;
 
-    public TemplateFileReader(String template, Map<String, String> localsals) {
+    public TemplateFileReader(String template, Map<String, String> locals) {
         super(template);
         this.locals = locals;
     }

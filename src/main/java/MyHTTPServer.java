@@ -1,3 +1,4 @@
+
 import java.io.*;
 import java.net.*;
 import java.util.HashMap;
@@ -45,7 +46,7 @@ class MyHttpServer {
 
     private static String route(HTTPRequest request) throws IOException {
         String body = "";
-        HTTPStaticFileReader reader = new HTTPStaticFileReader(request);
+        HTTPStaticFileReader reader = new HTTPStaticFileReader(request.path);
         //System.out.println("Path " + request.path);
 
         if (request.path.startsWith("/search")) {
@@ -55,10 +56,10 @@ class MyHttpServer {
             Map<String, String> locals = new HashMap<>();
             locals.put("IMG_SRC", url);
             reader = new TemplateFileReader("/cover.html", locals);
-            String examineReader = reader.getContents();
+            String examineReader =  reader.getContents();
             return examineReader;
         } else {
-            HTTPStaticFileReader file = new HTTPStaticFileReader(request);
+            HTTPStaticFileReader file = new HTTPStaticFileReader(request.path);
             body = file.getContents();
         }
         return body;

@@ -1,13 +1,16 @@
+
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.Scanner;
 
+
 public class HTTPStaticFileReader {
     private String path;
 
-    public HTTPStaticFileReader(HTTPRequest request) {
-        this.path = request.path;
+    public HTTPStaticFileReader(String path) {
+        this.path = path;
     }
 
     public String getContents() throws IOException {
@@ -15,7 +18,7 @@ public class HTTPStaticFileReader {
 
         // Load a source from a file
         // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "static/" + this.path;
+        String filepath = "/Users/sooz/codefellows/401Java/Labs/10-album-art-server/src/main/resources/static" + this.path;
 
         //ClassLoader classLoader = getClass().getClassLoader();
         //String fullFilepath = classLoader.getResource(filepath).getFile();
@@ -54,7 +57,7 @@ public class HTTPStaticFileReader {
     }
 
     public String replaceSymbol(String symbol){
-        String content = "---";
+        String content = "";
         if (symbol.equals("IMG_SRC")) {
             content = AlbumScraper.getAlbumArt(symbol);
             return content;

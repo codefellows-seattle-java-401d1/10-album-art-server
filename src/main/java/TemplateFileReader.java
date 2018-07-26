@@ -1,6 +1,7 @@
+
 import java.util.Map;
 
-class TemplateFileReader extends HTTPStaticFileReader {
+public class TemplateFileReader extends HTTPStaticFileReader {
     private Map<String, String> locals;
 
     public TemplateFileReader(String template, Map<String, String> locals) {

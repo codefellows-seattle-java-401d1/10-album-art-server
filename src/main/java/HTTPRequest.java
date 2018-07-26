@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,9 +22,6 @@ public class HTTPRequest {
             if (this.path.equals("/")) {
                 this.path = "/index.html";
             }
-//            if(this.path.equals("/search")){
-//                this.path =
-//            }
         } catch (IOException e) {
             System.out.println("Error parsing HTTP request: " + this.path);
         }

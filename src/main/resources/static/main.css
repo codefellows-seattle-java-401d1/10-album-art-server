@@ -4,9 +4,15 @@ body {
     font-family: arial;
     font-size: 3vh;
  }
+
  h1{
- font-color: grey
+ font-color: grey;
  font-size: 4vh;
+ }
+
+ form{
+ background: bisque;
+ padding: 1vw;
  }
  input{
   font-size: 5vh;

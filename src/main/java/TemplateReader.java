@@ -1,16 +1,16 @@
 import java.util.Map;
 
-public class TemplateFileReader extends HTTPStaticFileReader {
-    private Map<String, String> foundArt;
+class TemplateFileReader extends HTTPStaticFileReader {
+    private Map<String, String> locals;
 
-    public TemplateFileReader(HTTPRequest template, Map<String, String> foundArt) {
+    public TemplateFileReader(String template, Map<String, String> lcoals) {
         super(template);
-        this.foundArt = foundArt;
+        this.locals = lcoals;
     }
 
     public String replaceSymbol(String symbol) {
-        if (this.foundArt.containsKey(symbol)) {
-            return this.foundArt.get(symbol);
+        if (this.locals.containsKey(symbol)) {
+            return this.locals.get(symbol);
         }
         return super.replaceSymbol(symbol);
     }

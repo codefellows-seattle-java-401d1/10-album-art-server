@@ -15,8 +15,7 @@ public class HTTPStaticFileReader {
 
         // Load a source from a file
         // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "/Users/sooz/codefellows/401Java/Labs/10-album-art-server/src/main/resources/static/" +
-                this.path;
+        String filepath = "static/" + this.path;
 
         //ClassLoader classLoader = getClass().getClassLoader();
         //String fullFilepath = classLoader.getResource(filepath).getFile();
@@ -60,9 +59,8 @@ public class HTTPStaticFileReader {
             content = AlbumScraper.getAlbumArt(symbol);
             return content;
         } else {
-            String filepath = "/Users/sooz/codefellows/401Java/Labs/10-album-art-server/src/main/resources/static/not" +
-                    "-found.html";
-            return filepath;
+            String filepath = "notfound";
+            return content;
         }
     }
 }

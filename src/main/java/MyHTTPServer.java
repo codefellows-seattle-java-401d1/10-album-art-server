@@ -9,7 +9,6 @@ import java.io.BufferedReader;
 class MyHttpServer {
     public static final int PORT = 6789;
 
-
     public static void main(String argv[]) {
         try (ServerSocket socket = new ServerSocket(PORT)) {
             serve(socket);
@@ -28,22 +27,19 @@ class MyHttpServer {
             BufferedWriter outToClient = new BufferedWriter(new OutputStreamWriter(connectionSocket.getOutputStream()));
 
             HTTPRequest request = new HTTPRequest(inFromClient);
-            HTTPStaticFileReader file = new HTTPStaticFileReader(request);
 
+            HTTPResponse response;
             try {
-                int statusCode = 200;
                 String body = route(request);
-                HTTPResponse response = new HTTPResponse(statusCode, body);
-                response.send(outToClient);
+                response = new HTTPResponse(200, body);
             } catch (FileNotFoundException e) {
-                HTTPResponse response = new HTTPResponse(404, "Could not find " + request.path);
-                response.send(outToClient);
-            } catch (IOException e) {
-                HTTPResponse response = new HTTPResponse(500, "Internal server error");
-                response.send(outToClient);
+                response = new HTTPResponse(404, "Could not find " + request.path);
+            } catch (Exception e){
+                response = new HTTPResponse(500, "Internal server error");
             }
+             response.send(outToClient);
 
-            System.out.println("closed request.");
+             System.out.println("closed request.");
         }
     }
 
@@ -56,9 +52,9 @@ class MyHttpServer {
             String querySearch = request.queryParams().get("query");
             String url = AlbumScraper.getAlbumArt(querySearch);
 
-            Map<String, String> foundArt = new HashMap<>();
-            foundArt.put("IMG_SRC", url);
-            reader = new TemplateFileReader("/cover.html", foundArt);
+            Map<String, String> locals = new HashMap<>();
+            locals.put("IMG_SRC", url);
+            reader = new TemplateFileReader("/cover.html", locals);
             String examineReader = reader.getContents();
             return examineReader;
         } else {
@@ -67,4 +63,5 @@ class MyHttpServer {
         }
         return body;
     }
+    
 }

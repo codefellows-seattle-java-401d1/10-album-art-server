@@ -3,9 +3,9 @@ import java.util.Map;
 class TemplateFileReader extends HTTPStaticFileReader {
     private Map<String, String> locals;
 
-    public TemplateFileReader(String template, Map<String, String> lcoals) {
+    public TemplateFileReader(String template, Map<String, String> localsals) {
         super(template);
-        this.locals = lcoals;
+        this.locals = locals;
     }
 
     public String replaceSymbol(String symbol) {

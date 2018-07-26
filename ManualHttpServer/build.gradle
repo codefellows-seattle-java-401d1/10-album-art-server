@@ -1,7 +1,9 @@
-group 'HTTPServer'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+}
 
-apply plugin: 'java'
+group '10-album-art-server'
+version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 

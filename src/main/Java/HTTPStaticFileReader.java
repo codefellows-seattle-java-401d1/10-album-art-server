@@ -34,9 +34,13 @@ public class HTTPStaticFileReader {
         String first = cells[0];
         String theRest = cells[1];
 
+        cells = line.split("\\}\\}");
+        String symbol = cells[0];
+        String last = cells[1];
+
         String content = replaceSymbol(symbol);
 
-        return first + content + theRest;
+        return first + content + last;
     }
 
     public String replaceSymbol (String symbol) {
@@ -45,10 +49,13 @@ public class HTTPStaticFileReader {
         } else if (symbol.equals("TIMESTAMP")) {
             content = currentTimestamp();
         }
-
+        return content;
     }
 
-
+    public String currentTimestamp() {
+        Date date = new Date();
+        return date.toString();
+    }
 }
 
 

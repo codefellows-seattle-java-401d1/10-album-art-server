@@ -5,10 +5,11 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 
-public class CodeFellowsCourses {
-    public static String main(String[] args) {
+public class AlbumScraping {
+
+    public static String albumScrape(String query) {
         try {
-            String url = "https://www.codefellows.org/courses/code-401/advanced-software-development-in-full-stack-javascript/";
+            String url = "https://www.discogs.com/search/?q=" + query + "&type=all";
             Document doc = Jsoup.connect(url).get();
             Elements courseTitles = doc.select("h3");
 
@@ -21,3 +22,4 @@ public class CodeFellowsCourses {
         return "default";
     }
 }
+

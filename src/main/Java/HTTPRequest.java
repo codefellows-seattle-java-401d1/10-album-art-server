@@ -17,7 +17,7 @@ public class HTTPRequest {
         this.path = requestLine.split(" ")[1];
 
         if (this.path.equals("/")) {
-            this.path = "/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static/index.html";
+            this.path = "/index.html";
         }
     } catch (IOException e) {
             System.out.println("Error parsing HTTP request " + this.path);

@@ -44,7 +44,7 @@ public class HTTPStaticFileReader {
     }
 
     public String replaceSymbol (String symbol) {
-        String content = "_____";
+        String content = "";
         if (symbol.equals("RANDOM_JSON_QUOTE")) {
         } else if (symbol.equals("TIMESTAMP")) {
             content = currentTimestamp();

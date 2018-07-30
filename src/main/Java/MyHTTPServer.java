@@ -61,7 +61,7 @@ class MyHttpServer {
     public static String route (HTTPRequest request) throws IOException {
         HTTPStaticFileReader reader = new HTTPStaticFileReader(request.path);
         if (request.path.startsWith("/search")) {
-            String query = request.getParams().get("queryParams");
+            String query = request.getParams().get("query");
             String url = AlbumScraping.albumScrape(query);
 
             Map<String, String> albums = new HashMap<>();

@@ -1,16 +1,16 @@
 import java.util.Map;
 
 public class FileReader extends HTTPStaticFileReader {
-    private Map<String, String> Albums;
+    private Map<String, String> albums;
 
-    public FileReader(String template, Map<String, String> Albums) {
+    public FileReader(String template, Map<String, String> albums) {
         super(template);
-        this.Albums = Albums;
+        this.albums = albums;
     }
 
     public String replaceSymbol (String symbol) {
-        if (this.Albums.containsKey(symbol)) {
-            return this.Albums.get(symbol);
+        if (this.albums.containsKey(symbol)) {
+            return this.albums.get(symbol);
         }
         return super.replaceSymbol(symbol);
     }

@@ -11,11 +11,14 @@ public class AlbumScraping {
         try {
             String url = "https://www.discogs.com/search/?q=" + query + "&type=all";
             Document doc = Jsoup.connect(url).get();
-            Elements courseTitles = doc.select("h3");
+            Elements albumArt = doc.select(".thumbnail_center");
+            Element album = albumArt.get(0);
+            Element image = album.child(0);
+            String src = image.attr("data-src");
 
-            for (Element title : courseTitles) {
-                System.out.println(title.text());
-            }
+            System.out.println("src:" + src);
+            return src;
+
         } catch(IOException e){
             e.printStackTrace();
         }

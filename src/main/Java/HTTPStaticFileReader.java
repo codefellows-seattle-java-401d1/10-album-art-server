@@ -13,7 +13,9 @@ public class HTTPStaticFileReader {
     public String getContents() throws IOException {
         String result = "";
 
-        String filepath = "/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static/index.html;" + this.path;
+        String filepath = "/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static/index.html;"
+                + this.path;
+        
         File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {

@@ -13,9 +13,9 @@ public class HTTPStaticFileReader {
     public String getContents() throws IOException {
         String result = "";
 
-        String filepath = "/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static/index.html;"
+        String filepath = "/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static"
                 + this.path;
-        
+
         File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {
@@ -36,7 +36,7 @@ public class HTTPStaticFileReader {
         String first = cells[0];
         String theRest = cells[1];
 
-        cells = line.split("\\}\\}");
+        cells = theRest.split("\\}\\}");
         String symbol = cells[0];
         String last = cells[1];
 

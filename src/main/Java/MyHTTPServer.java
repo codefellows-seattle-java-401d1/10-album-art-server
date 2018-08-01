@@ -51,6 +51,7 @@ class MyHttpServer {
             response = new HTTPResponse(200, body);
         } catch (FileNotFoundException e) {
             response = new HTTPResponse(404, "Error processing file " + request.path);
+            e.printStackTrace();
         } catch (Exception e) {
             response = new HTTPResponse(500, "Internal server error");
         }
@@ -66,10 +67,9 @@ class MyHttpServer {
 
             Map<String, String> albums = new HashMap<>();
             albums.put("IMG_SRC", url);
-            reader = new FileReader("/Users/greg/codefellows/401/labs/10-album-art-server/src/main/resources/Static/albums.html", albums);
+            reader = new FileReader("/albums.html", albums);
         }
-        String examineReader = reader.getContents();
-        return examineReader;
+        return reader.getContents();
     }
 
 }

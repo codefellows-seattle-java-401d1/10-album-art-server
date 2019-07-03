@@ -1,5 +1,7 @@
 import java.io.*;
-import java.net.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
 
 class MyHttpServer {
     public static final int PORT = 6789;
@@ -25,19 +27,34 @@ class MyHttpServer {
             HTTPStaticFileReader file = new HTTPStaticFileReader(request);
 
             try {
+                String body = route(request);
                 int statusCode = 200;
-                String body = file.getContents();
                 HTTPResponse response = new HTTPResponse(statusCode, body);
                 response.send(outToClient);
             } catch (FileNotFoundException e) {
                 HTTPResponse response = new HTTPResponse(404, "Could not find " + request.path);
                 response.send(outToClient);
             } catch (IOException e) {
-               HTTPResponse response = new HTTPResponse(500, "Internal server error");
-               response.send(outToClient);
+                HTTPResponse response = new HTTPResponse(500, "Internal server error");
+                response.send(outToClient);
             }
 
             System.out.println("closed request.");
         }
+
+    }
+
+    private static String route(HTTPRequest request) throws IOException {
+        String body = "";
+        int statusCode = 200;
+        if(request.path.startsWith("/search")){
+            String query = request.queryParams().get("query");
+            String url = ArtScraper.Art(query);
+            body = "<html><img src='" + url + "'/></html>";
+        } else {
+            HTTPStaticFileReader file = new HTTPStaticFileReader(request);
+            body = file.getContents();
+        }
+        return body;
     }
 }

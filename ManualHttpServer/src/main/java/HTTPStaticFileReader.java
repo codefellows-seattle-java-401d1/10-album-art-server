@@ -15,10 +15,12 @@ public class HTTPStaticFileReader {
 
         // How do I load a file from resource folder?
         // https://stackoverflow.com/questions/15749192/how-do-i-load-a-file-from-resource-folder
-        String filepath = "static/" + this.path;
-        ClassLoader classLoader = getClass().getClassLoader();
-        String fullFilepath = classLoader.getResource(filepath).getFile();
-        File file = new File(fullFilepath);
+//        String filepath = "static/" + this.path;
+//        ClassLoader classLoader = getClass().getClassLoader();
+//        String fullFilepath = classLoader.getResource(filepath).getFile();
+//        File file = new File(fullFilepath);
+        String filepath = "/Users/ahmedosman/Desktop/401/labs/lab10-ahmed/10-album-art-server-two/src/main/resources" + this.path;
+        File file = new File(filepath);
 
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {

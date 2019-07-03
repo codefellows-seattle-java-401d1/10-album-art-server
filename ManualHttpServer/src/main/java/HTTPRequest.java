@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HTTPRequest {
     public String path;
@@ -22,5 +24,25 @@ public class HTTPRequest {
         } catch (IOException e) {
             System.out.println("Error parsing HTTP request: " + this.path);
         }
+    }
+
+    public Map<String, String> queryParams() {
+        Map<String, String> params = new HashMap<>();
+        if (this.path.contains("?")) {
+            String queryString = this.path.split("\\?")[1];
+            String[] pairs = queryString.split("&");
+
+            for (String param : pairs) {
+                String[] keyValue = param.split("=");
+                String key = keyValue[0];
+
+                String value = "";
+                if (keyValue.length >= 1) {
+                    value = keyValue[1];
+                }
+                params.put(key, value);
+            }
+        }
+        return params;
     }
 }
